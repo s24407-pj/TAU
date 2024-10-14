@@ -61,4 +61,18 @@ class SomeServiceTest {
 
         assertEquals(2, result)
     }
+
+    @Test
+    fun numberShouldBeEven() {
+        val result = someService.isNumberEven(2)
+
+        assertTrue(result)
+    }
+
+    @Test
+    fun numberShouldBeOdd() {
+        val result = someService.isNumberEven(3)
+
+        assertFalse(result)
+    }
 }

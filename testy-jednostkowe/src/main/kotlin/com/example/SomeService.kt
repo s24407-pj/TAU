@@ -2,11 +2,11 @@ package com.example
 
 class SomeService {
     fun isFirstNumberGreaterThanSecond(first: Int, second: Int): Boolean =
-         first > second
+        first > second
 
 
     fun addTwoNumbers(first: Int, second: Int): Int =
-         first + second
+        first + second
 
 
     fun divideTwoNumbers(first: Float, second: Float): Float {
@@ -16,8 +16,11 @@ class SomeService {
     }
 
     fun multiplyTwoNumbers(first: Int, second: Int): Int =
-         first * second
+        first * second
 
     fun subtractTwoNumbers(first: Int, second: Int): Int =
-         first - second
+        first - second
+
+    fun isNumberEven(number: Int): Boolean =
+        number % 2 == 0
 }
