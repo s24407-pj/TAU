@@ -11,7 +11,7 @@ repositories {
 }
 
 ext {
-  junitVersion = '5.10.2'
+  junitVersion = '5.11.3'
 }
 
 sourceCompatibility = '21'
@@ -28,8 +28,7 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
-  testImplementation('org.seleniumhq.selenium:selenium-java:4.20.0')
-
+  testImplementation('org.seleniumhq.selenium:selenium-java:4.26.0')
   testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
   testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 }
