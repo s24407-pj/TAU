@@ -24,6 +24,9 @@ jobs:
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
 
+      - name: Set executable permission for gradlew
+        run: chmod +x gradlew
+
       - name: Test with Gradle
         working-directory: lab3-prosta-gra
         run: ./gradlew test
