@@ -10,7 +10,7 @@ class Board(private val width: Int, private val height: Int) {
     fun print() {
         for (i in 0 .. height+1) {
             for (j in 0 .. width+1) {
-                print(board[i][j])
+                print(board[i][j] + " ")
             }
             println()
         }
@@ -27,7 +27,7 @@ class Board(private val width: Int, private val height: Int) {
     private fun generateObstacles(board: Array<Array<Char>>) {
         for (i in 1..height) {
             for (j in 1..width) {
-                if (Math.random() < 0.1 && board[i][j] != 'A' && board[i][j] != 'B') {
+                if (Math.random() < 0.3 && board[i][j] != 'A' && board[i][j] != 'B') {
                     board[i][j] = 'X'
                 }
             }
