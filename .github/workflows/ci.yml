@@ -20,4 +20,5 @@ jobs:
           java-version: '23'
           distribution: 'temurin'
       - name: Build with Gradle
+        working-directory: lab3-prosta-gra
         run: ./gradlew build
