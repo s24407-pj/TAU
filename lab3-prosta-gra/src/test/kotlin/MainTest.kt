@@ -1,7 +1,7 @@
 import org.junit.jupiter.api.Test
 import kotlin.test.assertTrue
 
-class Main {
+class MainTest {
     @Test
     fun test() {
         assertTrue(true)
