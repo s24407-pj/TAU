@@ -31,3 +31,9 @@ jobs:
       - name: Test with Gradle
         working-directory: lab3-prosta-gra
         run: ./gradlew test
+
+      - name: Archive test report
+        uses: actions/upload-artifact@v4
+        with:
+         name: Test report
+         path: build/reports/tests/test
