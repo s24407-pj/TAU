@@ -19,7 +19,7 @@ class SimpleGameTest {
 
         val game = SimpleGame(5, 5)
         game.play()
-
+        
 
 
         val result = output.toString()
@@ -38,6 +38,6 @@ class SimpleGameTest {
         game.play()
 
         val result = output.toString()
-        assertFalse(result.contains("Invalid input"), "Gra powinna informować o nieprawidłowym wejściu.")
+        assertTrue(result.contains("Invalid input"), "Gra powinna informować o nieprawidłowym wejściu.")
     }
 }
