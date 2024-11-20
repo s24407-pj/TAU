@@ -8,14 +8,15 @@ class SimpleGame(width: Int, height: Int) {
     private var playerPosition = board.startPoint
     private var isOver = false
 
-    init {
+    fun play() {
         while (!isOver) {
             board.print()
             println("w - up, s - down, a - left, d - right,q - quit")
             print("Enter direction: ")
-            val direction = readlnOrNull()!![0]
+            val input = readlnOrNull()!![0]
             print("\n\n\n")
-            when (direction) {
+
+            when (input) {
                 'w' -> move(UP)
                 's' -> move(DOWN)
                 'a' -> move(LEFT)
@@ -24,6 +25,10 @@ class SimpleGame(width: Int, height: Int) {
                 else -> println("Invalid input")
             }
         }
+    }
+
+    fun currentPlayerPosition(): Pair<Int, Int> {
+        return playerPosition
     }
 
     private fun move(direction: Direction) {
@@ -46,5 +51,4 @@ class SimpleGame(width: Int, height: Int) {
         board.updatePlayerPosition(playerPosition, newPosition)
         playerPosition = newPosition
     }
-
 }
