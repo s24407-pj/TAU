@@ -1,5 +1,3 @@
-package pl.example
-
 import kotlin.math.abs
 import kotlin.random.Random
 
@@ -45,7 +43,7 @@ class Board(private val width: Int, private val height: Int) {
             endPoint = generateRandomEdgePoint()
         } while (areAdjacent(startPoint, endPoint))
 
-        board[startPoint.second][startPoint.first] = 'A' //pytanie czy dobrze
+        board[startPoint.second][startPoint.first] = 'A'
         board[endPoint.second][endPoint.first] = 'B'
     }
 
@@ -61,10 +59,10 @@ class Board(private val width: Int, private val height: Int) {
 
     private fun generateRandomEdgePoint(): Pair<Int, Int> {
         return when ((0..3).random()) {
-            0 -> Pair((1 .. width ).random(), 1) // Top edge
-            1 -> Pair((1 .. width ).random(), height) // Bottom edge
-            2 -> Pair(1, (1 .. height).random()) // Left edge
-            else -> Pair(width, (1 .. height).random()) // Right edge
+            0 -> Pair((1..width).random(), 1) // Top edge
+            1 -> Pair((1..width).random(), height) // Bottom edge
+            2 -> Pair(1, (1..height).random()) // Left edge
+            else -> Pair(width, (1..height).random()) // Right edge
         }
     }
 

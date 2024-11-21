@@ -1,5 +1,4 @@
-package pl.example
-
 fun main() {
-    SimpleGame(5, 5)
+    val board = Board(5, 5)
+    SimpleGame(board).play()
 }

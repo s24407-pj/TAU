@@ -1,42 +1,31 @@
-package pl.example
-
-import pl.example.Direction.*
-
-
-class SimpleGame(width: Int, height: Int) {
-    private val board = Board(width, height)
+class SimpleGame(private val board: Board) {
     private var playerPosition = board.startPoint
     private var isOver = false
 
     fun play() {
         while (!isOver) {
             board.print()
-            println("w - up, s - down, a - left, d - right,q - quit")
+            println("w - up, s - down, a - left, d - right, q - quit")
             print("Enter direction: ")
-            val input = readlnOrNull()!![0]
-            print("\n\n\n")
+            val input = readlnOrNull()?.trim()?.lowercase()
 
             when (input) {
-                'w' -> move(UP)
-                's' -> move(DOWN)
-                'a' -> move(LEFT)
-                'd' -> move(RIGHT)
-                'q' -> isOver = true
+                "w" -> move(Direction.UP)
+                "s" -> move(Direction.DOWN)
+                "a" -> move(Direction.LEFT)
+                "d" -> move(Direction.RIGHT)
+                "q" -> isOver = true
                 else -> println("Invalid input")
             }
         }
     }
 
-    fun currentPlayerPosition(): Pair<Int, Int> {
-        return playerPosition
-    }
-
     private fun move(direction: Direction) {
         val newPosition = when (direction) {
-            UP -> Pair(playerPosition.first, playerPosition.second - 1)
-            DOWN -> Pair(playerPosition.first, playerPosition.second + 1)
-            LEFT -> Pair(playerPosition.first - 1, playerPosition.second)
-            RIGHT -> Pair(playerPosition.first + 1, playerPosition.second)
+            Direction.UP -> Pair(playerPosition.first, playerPosition.second - 1)
+            Direction.DOWN -> Pair(playerPosition.first, playerPosition.second + 1)
+            Direction.LEFT -> Pair(playerPosition.first - 1, playerPosition.second)
+            Direction.RIGHT -> Pair(playerPosition.first + 1, playerPosition.second)
         }
 
         if (board.isObstacle(newPosition)) {
@@ -47,7 +36,9 @@ class SimpleGame(width: Int, height: Int) {
         if (newPosition == board.endPoint) {
             println("You won!")
             isOver = true
+            return
         }
+
         board.updatePlayerPosition(playerPosition, newPosition)
         playerPosition = newPosition
     }
